@@ -6,9 +6,13 @@ This project demonstrates how to build a secure and reproducible genomic data pr
 It highlights practical skills in:
 
 • **Bioinformatics** (sequence handling, QC, alignment)
+
 •	**Data security** (AES encryption using Python’s cryptography)
+
 •	**Workflow automation**
+
 •	**Reproducibility** (logging, structured directories, Docker)
+
 •	**Secure coding practices for biological data**
 
 This is ideal for students or professionals building a portfolio in Cyberbiosecurity, Bioinformatics Security, or Genomic Data Engineering.
@@ -28,34 +32,55 @@ Sensitive outputs (e.g., final FASTA or VCF) can be encrypted automatically usin
 A Dockerfile is included for running the pipeline inside a reproducible container environment.
 
 **Repository Structure**
+
 secure-genomics-pipeline/
+
 │── raw_reads/        # Downloaded FASTA/FASTQ files
+
 │── trimmed/          # Cleaned/filtered sequences
+
 │── reference/        # Reference genomes
+
 │── alignments/       # Alignment outputs (SAM/FASTA, etc.)
+
 │── consensus/        # Consensus sequences
+
 │── msa/              # Multiple sequence alignment files
+
 │── variants/         # Variant calling results (VCF)
+
 │── encrypted/        # AES-encrypted output files
+
 │── logs/             # Pipeline logs for auditing
+
 │── scripts/          # Python workflow scripts
+
 │── config/           # YAML or JSON configuration files
+
 │── Dockerfile        # Containerized workflow definition
+
 │── README.md         # Project documentation
 
 **How to Run the Pipeline**
+
 **1. Clone the Repository**
-git clone https://github.com/<your-username>/secure-genomics-pipeline.git
+
+git clone https://github.com/Confidence-bit/secure-genomics-pipeline.git
+
 cd secure-genomics-pipeline
 
 **2. Run the Pipeline Locally**
+
 python3 run_pipeline.py
 
 **3. (Optional) Run with Docker**
+
 docker build -t secure-pipeline .
+
 docker run secure-pipeline
 
 **Security Features**
+
 •	AES-256 encryption for sensitive data
 •	Secure audit logs
 •	Structured directory separation
