@@ -1,0 +1,26 @@
+# Ignore large sequencing data
+raw_reads/
+trimmed/
+alignments/
+consensus/
+msa/
+variants/
+encrypted/
+decrypted/
+logs/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Keys
+*.key
+encryption.key
+
+# Temporary files
+*.sam
+*.bam
+*.bai
+*.vcf
+*.vcf.gz
+*.vcf.gz.tbi

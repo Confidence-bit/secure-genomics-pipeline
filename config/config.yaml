@@ -1,0 +1,6 @@
+reference: "reference/reference.fasta"
+sample_name: "sample"
+log_file: "logs/pipeline.log"
+
+samples:
+  - sample
