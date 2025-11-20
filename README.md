@@ -18,17 +18,23 @@ It highlights practical skills in:
 This is ideal for students or professionals building a portfolio in Cyberbiosecurity, Bioinformatics Security, or Genomic Data Engineering.
 
 **Features**
+
  1. **Automated Genomic Data Download**
 Fetches open-source sequences (e.g., SARS-CoV-2 FASTA files from NCBI).
- 2. **Data Cleaning**
+
+ 3. **Data Cleaning**
 Removes invalid or empty lines and validates nucleotide characters.
-3. **Sequence Alignment**
+
+5. **Sequence Alignment**
 Performs a simple sequence comparison/alignment.
-4. **Secure Logging**
+
+7. **Secure Logging**
 All operations are recorded using Python logging for transparency and auditing.
-5. **AES-256 File Encryption**
+
+9. **AES-256 File Encryption**
 Sensitive outputs (e.g., final FASTA or VCF) can be encrypted automatically using Python’s cryptography library.
-6. **Dockerized Workflow (Optional)**
+
+11. **Dockerized Workflow (Optional)**
 A Dockerfile is included for running the pipeline inside a reproducible container environment.
 
 **Repository Structure**
