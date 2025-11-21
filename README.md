@@ -5,37 +5,112 @@ A beginner-friendly, reproducible, and secure bioinformatics workflow for downlo
 This project demonstrates how to build a secure and reproducible genomic data processing pipeline using Python and basic command-line tools.
 It highlights practical skills in:
 
-• **Bioinformatics** (sequence handling, QC, alignment)
+**Bioinformatics Capabilities** 
 
-•	**Data security** (AES encryption using Python’s cryptography)
+This pipeline follows the major steps of a real-world genomics workflow:
 
-•	**Workflow automation**
+**1. Sequence Acquisition**
 
-•	**Reproducibility** (logging, structured directories, Docker)
+  •	Downloads FASTA/FASTQ files from public databases.
 
-•	**Secure coding practices for biological data**
+  •	Saves them in the raw_reads/ directory
 
-This is ideal for students or professionals building a portfolio in Cyberbiosecurity, Bioinformatics Security, or Genomic Data Engineering.
+**2. Quality Control & Trimming**
 
-**Features**
+  •	Cleans low-quality or invalid bases.
 
- 1. **Automated Genomic Data Download**
-Fetches open-source sequences (e.g., SARS-CoV-2 FASTA files from NCBI).
+  •	Outputs saved in trimmed/.
 
- 3. **Data Cleaning**
-Removes invalid or empty lines and validates nucleotide characters.
+**3. Reference Indexing**
 
-5. **Sequence Alignment**
-Performs a simple sequence comparison/alignment.
+  •	Prepares reference genome for alignment.
 
-7. **Secure Logging**
-All operations are recorded using Python logging for transparency and auditing.
+  •	Reference files stored in reference/.
 
-9. **AES-256 File Encryption**
-Sensitive outputs (e.g., final FASTA or VCF) can be encrypted automatically using Python’s cryptography library.
+**4. Sequence Alignment**
+  •	Aligns sequences to the reference.
 
-11. **Dockerized Workflow (Optional)**
-A Dockerfile is included for running the pipeline inside a reproducible container environment.
+  •	SAM/BAM files generated in alignments
+
+**5. SAM/BAM Processing and Indexing**
+
+  •	Sorts, indexes, and processes alignment files. /.
+  
+**6. Multiple Sequence Alignment (MSA)**
+
+  •	Compares sequences across samples.
+
+  •	Stored in msa/.
+
+**7. Consensus Sequence Generation**
+
+  •	Builds consensus genomes from aligned reads.
+
+  •	Saved in consensus/.
+
+**8. Variant Calling**
+
+  •	Detects SNPs, mutations, and genomic differences.
+
+  •	VCF files written to variants/.
+
+**Data Security (Two Encryption Methods)**
+
+The pipeline includes two independent encryption approaches, demonstrating practical genomic data protection:
+
+1. **OpenSSL Encryption (Command-line Level)**
+
+  •	Used to encrypt sensitive variant files such as VCF.
+
+  •	Produces encrypted files stored in encrypted/.
+
+  •	Shows familiarity with standard cryptographic tools used in bioinformatics workflows.
+
+2. **Python AES-256 Encryption (Fernet)**
+
+  •	Encrypts selected output files using Python’s cryptography library.
+
+  •	Demonstrates secure coding practices in Python.
+
+  •	Keys handled separately to avoid plaintext exposure.
+
+**Workflow Automation**
+
+  •	All major steps are handled through Python scripts located in scripts/.
+
+  •	Includes logging, validation, error handling, and step sequencing.
+
+  •	The main controller script (run_pipeline.py) shows workflow orchestration.
+
+**Reproducibility**
+
+To ensure reproducible and transparent analysis:
+
+  •	Structured directory layout for raw, processed, and encrypted data.
+
+  •	Logging system (written to logs/) to track all steps, errors, and outputs.
+
+  •	config/ folder contains parameters and settings used across the workflow.
+
+Dockerfile is included for fully reproducible environments, useful for sharing or deploying the pipeline.
+
+**Secure Coding Practices**
+
+This project demonstrates:
+
+  •	Input validation before processing data
+
+  •	Avoiding plaintext storage of sensitive genomic results
+
+  •	Separation of raw vs. processed vs. encrypted outputs
+
+  •	Avoiding hard-coded keys
+
+  •	Logging for traceability and auditability
+
+  •	Correct use of cryptographic libraries and OpenSSL
+
+  •	Git version control ensures all changes are tracked.
 
 **Repository Structure**
 
@@ -66,6 +141,34 @@ secure-genomics-pipeline/
 │── Dockerfile        # Containerized workflow definition
 
 │── README.md         # Project documentation
+
+**Features**
+
+**1. Automated Genomic Data Download**
+
+Fetches open-source sequences (e.g., SARS-CoV-2 FASTA files).
+
+**2. Data Cleaning and Validation**
+
+Ensures high-quality and safe-to-process nucleotide sequences.
+
+**3. Alignment, MSA, Consensus, and Variant Calling**
+
+Shows end-to-end genomic data analysis.
+
+**4. Secure Logging**
+
+Everything is logged for transparency, debugging, and audit trails.
+
+**5. Dual Encryption System**
+
+  •	OpenSSL for VCF security
+
+  •	Python AES/Fernet for file-level encryption
+
+**6. Dockerized Workflow**
+
+Ensures reproducibility across systems.
 
 **How This Workflow Ensures Security, Integrity & Reproducibility**
 
@@ -141,7 +244,7 @@ This prevents accidental upload of:
 
 This follows real-world data governance principles, keeping the repository safe.
 
-6. **Docker (Optional) for Environment Reproducibility**
+6. **Docker for Environment Reproducibility**
    
 The project includes a Dockerfile (or supports Docker) that standardizes:
 
