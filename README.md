@@ -2,8 +2,17 @@
 A beginner-friendly, reproducible, and secure bioinformatics workflow for downloading, processing, aligning, and protecting genomic sequence data.
 
 **Project Overview**
-This project demonstrates how to build a secure and reproducible genomic data processing pipeline using Python and basic command-line tools.
-It highlights practical skills in:
+This project demonstrates how to build a secure and reproducible genomic data processing pipeline using Python. It was fully developed and executed in a Linux environment using Bash command-line workflows, ensuring reproducibility, automation, and seamless integration with bioinformatics and security tools.
+
+**Technologies Used**
+
+1. **Operating System**: Linux (Bash shell)
+
+2. **Bioinformatics Tools**: FastQC, Trimmomatic, BWA, SAMtools, MAFFT, etc.
+
+3. **Security Tools**: OpenSSL, Python cryptography (Fernet)
+
+4. **Containerization**: Docker
 
 **Bioinformatics Capabilities** 
 
